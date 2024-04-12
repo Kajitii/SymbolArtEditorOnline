@@ -154,7 +154,7 @@ class UIApplication {
         }
     });
 
-    _copyrightView = new UICopyrightView();
+    // _copyrightView = new UICopyrightView();
 
     _optionsView = new UIOptionsView();
     _soundOptionsView = new UISoundOptionsView({
@@ -294,7 +294,7 @@ class UIApplication {
     _didFinishLaunching() {
         if (!this.loaded) return;
         let $body = $('body');
-        this._copyrightView.append({ to: $body });
+        // this._copyrightView.append({ to: $body });
         this._layerPicker.append({ to: $body });
         this._menu.append({ to: $body });
         this._actionBar.append({ to: $body });
@@ -305,9 +305,9 @@ class UIApplication {
         this._optionsView.append({ to: $body });
         this._helperImageOptionsView.append({ to: $body });
         this._renderer.updateWith({ symbolArt: this._symbolArt });
-        this._copyrightView.didLoad(_ => {
-            this._copyrightView.view.prependTo($('body'));
-        });
+        // this._copyrightView.didLoad(_ => {
+        //     this._copyrightView.view.prependTo($('body'));
+        // });
         this._renderer.render();
         document.body.appendChild(this._renderer.domElement);
     }

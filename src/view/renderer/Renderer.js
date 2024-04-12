@@ -440,22 +440,17 @@ class Renderer {
         }
         if (ApplicationState.shared.viewMode === ViewMode.layerEditorMode) {
             this._engine.clear();
-            this._engine.setViewport(0, 0, window.innerWidth, window.innerHeight);
-            this._engine.setScissor(0, 0, window.innerWidth, window.innerHeight);
-            this._engine.setScissorTest(true);
-            this._engine.render(this._scene, this._camera);
-            this._engine.clearDepth();
-
-            this._engine.setViewport(window.innerWidth - 0.5 * SymbolArt.viewableDimensions.width, window.innerHeight - 0.5 * SymbolArt.viewableDimensions.height, 0.5 * SymbolArt.viewableDimensions.width, 0.5 * SymbolArt.viewableDimensions.height);
-            this._engine.setScissor(window.innerWidth - 0.5 * SymbolArt.viewableDimensions.width, window.innerHeight - 0.5 * SymbolArt.viewableDimensions.height, 0.5 * SymbolArt.viewableDimensions.width, 0.5 * SymbolArt.viewableDimensions.height);
-            this._engine.setScissorTest(true);
-            this._engine.render(this._scene, this._previewCamera);
-        } else {
-            this._engine.setViewport(0, 0, window.innerWidth, window.innerHeight);
-            this._engine.setScissor(0, 0, window.innerWidth, window.innerHeight);
-            this._engine.setScissorTest(true);
-            this._engine.render(this._scene, this._camera);
         }
+        this._engine.setViewport(0, 0, window.innerWidth, window.innerHeight);
+        this._engine.setScissor(0, 0, window.innerWidth, window.innerHeight);
+        this._engine.setScissorTest(true);
+        this._engine.render(this._scene, this._camera);
+        this._engine.clearDepth();
+
+        this._engine.setViewport(window.innerWidth - 0.5 * SymbolArt.viewableDimensions.width, window.innerHeight - 0.5 * SymbolArt.viewableDimensions.height, 0.5 * SymbolArt.viewableDimensions.width, 0.5 * SymbolArt.viewableDimensions.height);
+        this._engine.setScissor(window.innerWidth - 0.5 * SymbolArt.viewableDimensions.width, window.innerHeight - 0.5 * SymbolArt.viewableDimensions.height, 0.5 * SymbolArt.viewableDimensions.width, 0.5 * SymbolArt.viewableDimensions.height);
+        this._engine.setScissorTest(true);
+        this._engine.render(this._scene, this._previewCamera);
     }
 
     resizeRendererAndCamera() {
