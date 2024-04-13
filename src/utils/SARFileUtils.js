@@ -79,12 +79,12 @@ class SARFileUtils {
             let byteArray = new Uint8Array(fileDataArrayBuffer);
             let numberOfBytesInFile = fileDataArrayBuffer.byteLength;
             let numberOfBytesInHeaderSection = 4;
-            let isFileFormattedCorretly = byteArray[0] === SARFileUtils._headerType.charCodeAt(0)
+            let isFileFormattedCorrectly = byteArray[0] === SARFileUtils._headerType.charCodeAt(0)
                 && byteArray[1] === SARFileUtils._headerType.charCodeAt(1)
                 && byteArray[2] === SARFileUtils._headerType.charCodeAt(2);
             let flag = byteArray[3];
             let isFlagValid = flag === SARFileUtils._compressedFlag || flag === SARFileUtils._uncompressedFlag;
-            if (!isFileFormattedCorretly) {
+            if (!isFileFormattedCorrectly) {
                 return null;
             }
             if (!isFlagValid) {
